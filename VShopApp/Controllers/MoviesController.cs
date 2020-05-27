@@ -12,8 +12,9 @@ namespace VShopApp.Controllers
         //Movies
         public ActionResult Index()
         {
-            return HttpNotFound();
-            //return EmptyResult;
+            var movies = GetMovies();
+            return View(movies);
+            
         }
         // GET: Movies/Random
         public ActionResult Random()
@@ -25,6 +26,15 @@ namespace VShopApp.Controllers
             //return new EmptyResult();
             return RedirectToAction("Index");
 
+        }
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie { Id = 1, Name = "Thappad"},
+                new Movie { Id = 2, Name = "Jaanu"},
+                new Movie { Id = 3, Name = "Ala Vaikunthapuramlo"}
+            };
         }
     }
 }

@@ -1,0 +1,19 @@
+﻿@model List<VShopApp.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Available movies</h2>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Id</th>
+    </tr>
+    @foreach(var movie in Model)
+    {
+<tr>
+    <td> @movie.Name</td> <td>@movie.Id</td></tr>
+    }
+</table>
+
