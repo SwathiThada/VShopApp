@@ -24,6 +24,8 @@ namespace VShopApp.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Movie> Movies { get; set; }
 
         public static ApplicationDbContext Create()
         {
