@@ -9,28 +9,39 @@ namespace VShopApp.Controllers
 {
     public class CustomersController : Controller
     {
+        private ApplicationDbContext _context;
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            //base.Dispose(disposing);
+            _context.Dispose();
+        }
         // GET: Customers -- list of customers
         public ActionResult Index()
         {
-            var customers = GetCustomers();
+            //var customers = GetCustomers();
+            var customers = _context.Customers.ToList();
            
             return View(customers);
         }
         public ActionResult Details(int id)
         {
-            var customer = GetCustomers().SingleOrDefault(cust => cust.Id == id);
+            var customer = _context.Customers.SingleOrDefault(cust => cust.Id == id);
             return View(customer);
         }
 
-        private IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>
-            {
-                new Customer { Id = 01 , Name = "Swathi Thada"},
-                new Customer { Id = 02,  Name = "Prashant Keshireddy"},
-                new Customer { Id = 03, Name = "Pruthvi Thada"}
-            };
-        }
+        //private IEnumerable<Customer> GetCustomers()
+        //{
+        //    return new List<Customer>
+        //    {
+        //        new Customer { Id = 01 , Name = "Swathi Thada"},
+        //        new Customer { Id = 02,  Name = "Prashant Keshireddy"},
+        //        new Customer { Id = 03, Name = "Pruthvi Thada"}
+        //    };
+        //}
         
     }
 }
