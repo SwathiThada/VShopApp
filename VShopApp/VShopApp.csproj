@@ -195,6 +195,14 @@
     <Compile Include="Migrations\202005282043058_applyAnnotationstoCustomerTable.Designer.cs">
       <DependentUpon>202005282043058_applyAnnotationstoCustomerTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005292023112_changingfrommembershipIDtoMembershipTypeId.cs" />
+    <Compile Include="Migrations\202005292023112_changingfrommembershipIDtoMembershipTypeId.Designer.cs">
+      <DependentUpon>202005292023112_changingfrommembershipIDtoMembershipTypeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005292036431_emptymigrationtodropcustomerstable.cs" />
+    <Compile Include="Migrations\202005292036431_emptymigrationtodropcustomerstable.Designer.cs">
+      <DependentUpon>202005292036431_emptymigrationtodropcustomerstable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -298,6 +306,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005282043058_applyAnnotationstoCustomerTable.resx">
       <DependentUpon>202005282043058_applyAnnotationstoCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005292023112_changingfrommembershipIDtoMembershipTypeId.resx">
+      <DependentUpon>202005292023112_changingfrommembershipIDtoMembershipTypeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005292036431_emptymigrationtodropcustomerstable.resx">
+      <DependentUpon>202005292036431_emptymigrationtodropcustomerstable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

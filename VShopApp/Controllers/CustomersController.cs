@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VShopApp.Models;
+
 
 namespace VShopApp.Controllers
 {
@@ -23,13 +25,13 @@ namespace VShopApp.Controllers
         public ActionResult Index()
         {
             //var customers = GetCustomers();
-            var customers = _context.Customers.ToList();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
            
             return View(customers);
         }
         public ActionResult Details(int id)
         {
-            var customer = _context.Customers.SingleOrDefault(cust => cust.Id == id);
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             return View(customer);
         }
 
