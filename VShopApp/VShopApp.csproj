@@ -219,9 +219,38 @@
     <Compile Include="Migrations\202005301257454_makingthebirthdatefieldnullable.Designer.cs">
       <DependentUpon>202005301257454_makingthebirthdatefieldnullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005301919032_addingColumnstoMoviesTable.cs" />
+    <Compile Include="Migrations\202005301919032_addingColumnstoMoviesTable.Designer.cs">
+      <DependentUpon>202005301919032_addingColumnstoMoviesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005301927329_addingGenre.cs" />
+    <Compile Include="Migrations\202005301927329_addingGenre.Designer.cs">
+      <DependentUpon>202005301927329_addingGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005301930080_addingGenreForeignKey.cs" />
+    <Compile Include="Migrations\202005301930080_addingGenreForeignKey.Designer.cs">
+      <DependentUpon>202005301930080_addingGenreForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005301930492_populatingGenres.cs" />
+    <Compile Include="Migrations\202005301930492_populatingGenres.Designer.cs">
+      <DependentUpon>202005301930492_populatingGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005301959518_%27populatemovies%27.cs" />
+    <Compile Include="Migrations\202005301959518_%27populatemovies%27.Designer.cs">
+      <DependentUpon>202005301959518_%27populatemovies%27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005302029574_deleteMovies.cs" />
+    <Compile Include="Migrations\202005302029574_deleteMovies.Designer.cs">
+      <DependentUpon>202005302029574_deleteMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005302034184_populatingMovies.cs" />
+    <Compile Include="Migrations\202005302034184_populatingMovies.Designer.cs">
+      <DependentUpon>202005302034184_populatingMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -290,6 +319,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,6 +370,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005301257454_makingthebirthdatefieldnullable.resx">
       <DependentUpon>202005301257454_makingthebirthdatefieldnullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301919032_addingColumnstoMoviesTable.resx">
+      <DependentUpon>202005301919032_addingColumnstoMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301927329_addingGenre.resx">
+      <DependentUpon>202005301927329_addingGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301930080_addingGenreForeignKey.resx">
+      <DependentUpon>202005301930080_addingGenreForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301930492_populatingGenres.resx">
+      <DependentUpon>202005301930492_populatingGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301959518_%27populatemovies%27.resx">
+      <DependentUpon>202005301959518_%27populatemovies%27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005302029574_deleteMovies.resx">
+      <DependentUpon>202005302029574_deleteMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005302034184_populatingMovies.resx">
+      <DependentUpon>202005302034184_populatingMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
