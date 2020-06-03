@@ -10,7 +10,7 @@ namespace VShopApp.Models
     {
         public int Id { get; set; }
         
-        [Required]
+        [Required (ErrorMessage = "Plesae specify customer's Name")]
         [StringLength(50)]
         
         public string  Name { get; set; }
@@ -18,6 +18,7 @@ namespace VShopApp.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "dd/mm/yyyy")]
         [Display (Name = "Date of Birth")]
+        [Min18YearsofAge]
         public DateTime? BirthDate { get; set; }
         public bool IsSubscribedToNewsLetter { get; set; }
 
