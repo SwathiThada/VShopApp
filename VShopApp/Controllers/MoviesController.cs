@@ -35,13 +35,13 @@ namespace VShopApp.Controllers
             var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(c => c.Id ==id);
             return View(movie);
         }
-        public ActionResult New(Movie movie)
+        public ActionResult New()
         {
             var geners = _context.Genres.ToList();
 
             var viewModel = new MovieFormViewModel
             {
-                Movie = movie,
+                Movie = new Movie(),
                 Genres = geners
             };
             return View("MovieForm",viewModel);
@@ -64,8 +64,19 @@ namespace VShopApp.Controllers
 
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var ViewModel = new MovieFormViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", ViewModel);
+            }
+                               
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
