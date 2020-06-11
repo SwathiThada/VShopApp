@@ -6,6 +6,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.EnterpriseServices;
+using VShopApp.Dtos;
+using AutoMapper;
 //using System.Web.Mvc;
 
 namespace VShopApp.Controllers.API
@@ -18,32 +20,34 @@ namespace VShopApp.Controllers.API
             _context = new ApplicationDbContext();
         }
         //GET/api/customers
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList();
+            return _context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
         }
         //GET /api/customers/1
-        public Customer GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customer == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            return customer;
+                return NotFound();
+            return Ok(Mapper.Map<Customer, CustomerDto>(customer));
         }
         //POST /api/customers
         [HttpPost]
-        public Customer CreateCustomer(Customer customer)
+        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
 
             _context.Customers.Add(customer);
             _context.SaveChanges();
-            return customer;
+            customerDto.Id = customer.Id;
+            return Created(new Uri(Request.RequestUri + "/" + customer.Id),customerDto);
         }
         //PUT /api/customers/1
         [HttpPut]
-        public Customer UpdateCustomer(int id, Customer customer)
+        public Customer UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -53,10 +57,9 @@ namespace VShopApp.Controllers.API
             if (customerInDB == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            customerInDB.Name = customer.Name;
-            customerInDB.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
-            customerInDB.MembershipTypeId = customer.MembershipTypeId;
-            customerInDB.BirthDate = customer.BirthDate;
+            Mapper.Map<CustomerDto, Customer>(customerDto, customerInDB);
+
+            
             _context.SaveChanges();
 
             return customerInDB;
