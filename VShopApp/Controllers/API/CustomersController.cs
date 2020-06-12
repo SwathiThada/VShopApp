@@ -47,27 +47,29 @@ namespace VShopApp.Controllers.API
         }
         //PUT /api/customers/1
         [HttpPut]
-        public Customer UpdateCustomer(int id, CustomerDto customerDto)
+        public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                //throw new HttpResponseException(HttpStatusCode.BadRequest);
+                BadRequest();
 
             var customerInDB = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDB == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                //throw new HttpResponseException(HttpStatusCode.NotFound);
+                NotFound();
 
             Mapper.Map<CustomerDto, Customer>(customerDto, customerInDB);
 
             
             _context.SaveChanges();
 
-            return customerInDB;
+            return Ok();
 
         }
         //DELETE /api/customers/1
         [HttpDelete]
-        public void DeleteCustomer(int id)
+        public IHttpActionResult DeleteCustomer(int id)
         {
             
             var customerInDB = _context.Customers.SingleOrDefault(c => c.Id == id);
@@ -77,6 +79,7 @@ namespace VShopApp.Controllers.API
 
             _context.Customers.Remove(customerInDB);
             _context.SaveChanges();
+            return Ok();
 
         }
     }
