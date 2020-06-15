@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.EnterpriseServices;
 using VShopApp.Dtos;
 using AutoMapper;
+using System.Data.Entity;
 //using System.Web.Mvc;
 
 namespace VShopApp.Controllers.API
@@ -22,7 +23,10 @@ namespace VShopApp.Controllers.API
         //GET/api/customers
         public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
+            return _context.Customers.
+                Include( c => c.MembershipType).
+                ToList().
+                Select(Mapper.Map<Customer,CustomerDto>);
         }
         //GET /api/customers/1
         public IHttpActionResult GetCustomer(int id)

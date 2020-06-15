@@ -16,6 +16,8 @@ namespace VShopApp.App_Start
             Mapper.CreateMap<CustomerDto, Customer>().ForMember(m => m.Id, Opt => Opt.Ignore()); 
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<MovieDto, Movie>().ForMember(m => m.Id, Opt => Opt.Ignore());
+            Mapper.CreateMap<MembershipType, MembershipTypeDto>();
+           
         }
     }
 }
