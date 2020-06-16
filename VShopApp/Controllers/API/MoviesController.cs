@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using VShopApp.Dtos;
 using VShopApp.Models;
+using System.Data.Entity;
 
 namespace VShopApp.Controllers.API
 {
@@ -22,7 +23,9 @@ namespace VShopApp.Controllers.API
         //GET /api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            return _context.Movies.
+                Include(g => g.Genre).
+                ToList().Select(Mapper.Map<Movie, MovieDto>);
             
         }
         //GET api/movies/1

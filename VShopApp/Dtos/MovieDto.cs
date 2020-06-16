@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using VShopApp.Models;
+
 
 namespace VShopApp.Dtos
 {
@@ -14,6 +16,7 @@ namespace VShopApp.Dtos
 
         [Required]
         public int GenreId { get; set; }
+        public GenreDto Genre { get; set; }
         [Required]
         public DateTime? ReleaseDate { get; set; }
         public DateTime DateAdded { get; set; }
