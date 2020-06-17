@@ -40,6 +40,7 @@ namespace VShopApp.Controllers.API
         }
         //POST api/movies
         [HttpPost]
+        [Authorize (Roles = RoleName.CanManageMovies)]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
             if (!ModelState.IsValid)

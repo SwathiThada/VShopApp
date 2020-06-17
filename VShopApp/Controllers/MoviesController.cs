@@ -26,9 +26,13 @@ namespace VShopApp.Controllers
         //Movies
         public ActionResult Index()
         {
-            //var movies = _context.Movies.Include(m => m.Genre).ToList();
-            //return View(movies);
-            return View();
+           if (User.IsInRole(RoleName.CanManageMovies))
+                //var movies = _context.Movies.Include(m => m.Genre).ToList();
+                //return View(movies);
+                return View("List");
+
+                return View("ReadOnlyList");
+                //return View();
 
             
         }
@@ -37,6 +41,7 @@ namespace VShopApp.Controllers
             var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(c => c.Id ==id);
             return View(movie);
         }
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var geners = _context.Genres.ToList();

@@ -1,0 +1,51 @@
+﻿@model List<VShopApp.Models.Movie>
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Movies</h2>
+
+
+<table id="movies" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+    @*@foreach(var movie in Model)
+        {
+         <tr>
+            <td>@Html.ActionLink(movie.Name,"Edit", new {Id = movie.Id })</td>
+            <td>@movie.Genre.Name</td>
+             <td><button data-movie-id="@movie.Id" class="btn-link js-delete">Delete</button></td>
+        </tr>
+        } *@
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+           // $("#movies").DataTable();
+
+            var table = $("#movies").DataTable({
+                ajax: {
+                    url: "/api/movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                    },
+                    {
+                        data: "genre.name"
+                    }
+                ]
+                });
+
+            
+        });
+    </script>
+}
+
+
