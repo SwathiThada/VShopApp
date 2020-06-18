@@ -6,6 +6,10 @@ namespace VShopApp.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
+        [Display (Name = "Phone Number")]
+        [StringLength(50)]
+        public string Number { get; set; }
+        [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
         [Required]
@@ -67,6 +71,10 @@ namespace VShopApp.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [StringLength(50)]
+        [Display (Name = "Phone Number")]
+        public string Number { get; set; }
         [Required]
         [StringLength(50)]
         [Display (Name = "Driving License")]

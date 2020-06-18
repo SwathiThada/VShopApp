@@ -12,6 +12,9 @@ namespace VShopApp.Models
     {
         [Required]
         [StringLength(50)]
+        public string Number { get; set; }
+        [Required]
+        [StringLength(50)]
         public string DrivingLicense { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
