@@ -54,9 +54,9 @@ namespace VShopApp
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "905019013305547",
+               appSecret: "70b309ac7b5c1fdc0fd685130a97d4c0");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

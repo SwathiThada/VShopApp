@@ -8,6 +8,9 @@ namespace VShopApp.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [Required]
+        [Display(Name = "Driving License")]
+        public string DrivingLicense { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -66,6 +69,7 @@ namespace VShopApp.Models
     {
         [Required]
         [StringLength(50)]
+        [Display (Name = "Driving License")]
         public string DrivingLicense { get; set; }
         [Required]
         [EmailAddress]
