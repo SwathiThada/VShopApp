@@ -27,5 +27,7 @@ namespace VShopApp.Models
         [Display ( Name = "Number In Stock")]
         [Range (1, 20)]
         public int? NumberInStock { get; set; }
+        public int NumberAvailable { get; set; }
+
     }
 }

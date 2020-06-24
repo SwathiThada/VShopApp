@@ -13,7 +13,8 @@ namespace VShopApp
                        "~/Scripts/bootstrap.js",
                        "~/Scripts/bootbox.js",
                        "~/scripts/datatables/jquery.datatables.js",
-                       "~/scripts/datatables/datatables.bootstrap.js"
+                       "~/scripts/datatables/datatables.bootstrap.js",
+                       "~/scripts/typeahead.bundle.js"
                       ));
 
            
@@ -29,6 +30,7 @@ namespace VShopApp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-Lumen2.css",
                       "~/cotent/datatables/css/datatables.bootstrap.css",
+                      "~/Content/typeahead.css",
                       "~/Content/site.css"));
 
             //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
